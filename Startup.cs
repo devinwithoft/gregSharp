@@ -33,6 +33,10 @@ public class Startup
 
     services.AddScoped<AccountsRepository>();
     services.AddScoped<AccountService>();
+
+    services.AddScoped<IDbConnection>(x => CreateDbConnection());
+    services.AddTransient<HomesService>();
+    services.AddTransient<HomesRepository>();
   }
 
   private void ConfigureCors(IServiceCollection services)
